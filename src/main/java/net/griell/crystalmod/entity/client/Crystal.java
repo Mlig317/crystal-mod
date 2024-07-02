@@ -5,6 +5,8 @@ package net.griell.crystalmod.entity.client;// Made with Blockbench 4.10.3
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.griell.crystalmod.entity.animations.ModAnimationsDefinitions;
+import net.griell.crystalmod.entity.custom.CrystalEntity;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -133,7 +135,9 @@ public class Crystal<T extends Entity> extends HierarchicalModel<T> {
 
 	@Override
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.root().getAllParts().forEach(ModelPart::resetPose);
 
+		this.animate(((CrystalEntity) entity).idleAnimationState, ModAnimationsDefinitions.animation, ageInTicks, 1f);
 	}
 
 	@Override
