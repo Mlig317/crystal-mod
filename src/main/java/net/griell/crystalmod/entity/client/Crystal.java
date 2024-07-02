@@ -48,7 +48,7 @@ public class Crystal<T extends Entity> extends HierarchicalModel<T> {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition crystal = partdefinition.addOrReplaceChild("crystal", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
+		PartDefinition crystal = partdefinition.addOrReplaceChild("crystal", CubeListBuilder.create(), PartPose.offset(0.0F, 13.0F, 0.0F));
 
 		PartDefinition middle = crystal.addOrReplaceChild("middle", CubeListBuilder.create().texOffs(12, 68).addBox(-1.0F, -1.0F, -1.0F, 2.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -6.0F, 0.0F));
 
@@ -145,4 +145,5 @@ public class Crystal<T extends Entity> extends HierarchicalModel<T> {
 	public ModelPart root() {
 		return crystal;
 	}
+
 }
